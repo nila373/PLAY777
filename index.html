@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAY777 - Bangla Gaming</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#101522;
+color:white;
+}
+header{
+background:#171f31;
+padding:20px;
+text-align:center;
+border-bottom:3px solid #00e676;
+}
+header h1{color:#00e676;margin:0}
+header p{color:#ddd}
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:15px;
+background:#202b40;
+flex-wrap:wrap;
+}
+nav a{color:white;text-decoration:none}
+.hero{
+text-align:center;
+padding:55px 15px;
+background:linear-gradient(135deg,#153c35,#17234c);
+}
+.hero h2{font-size:32px;color:#00e676}
+.btn{
+display:inline-block;
+padding:12px 24px;
+margin:8px;
+border-radius:8px;
+background:#00e676;
+color:#101522;
+font-weight:bold;
+text-decoration:none;
+}
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+padding:25px;
+}
+.card{
+background:#202b40;
+padding:25px;
+text-align:center;
+border-radius:14px;
+border:1px solid #34435b;
+}
+.card h3{color:#00e676}
+footer{
+text-align:center;
+padding:25px;
+background:#171f31;
+color:#ccc;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎮 PLAY777</h1>
+<p>Bangla Free Gaming Website</p>
+</header>
+
+<nav>
+<a href="#home">হোম</a>
+<a href="#games">গেমস</a>
+<a href="#register">রেজিস্ট্রেশন</a>
+<a href="#login">লগইন</a>
+</nav>
+
+<section class="hero" id="home">
+<h2>স্বাগতম PLAY777-এ!</h2>
+<p>তোমার পছন্দের গেম খেলো এবং আনন্দ উপভোগ করো।</p>
+<a class="btn" href="#games">গেম খেলুন</a>
+<a class="btn" href="#register">অ্যাকাউন্ট তৈরি</a>
+</section>
+
+<section class="cards" id="games">
+<div class="card">
+<h3>🎯 Number Guess</h3>
+<p>সংখ্যা অনুমান করার মজার গেম।</p>
+<button onclick="playGame()">গেম খেলুন</button>
+<p id="result"></p>
+</div>
+
+<div class="card" id="register">
+<h3>📝 রেজিস্ট্রেশন</h3>
+<p>নতুন অ্যাকাউন্ট তৈরি করতে নিচের ফর্ম ব্যবহার করুন।</p>
+<form onsubmit="registerUser(event)">
+<input id="name" placeholder="আপনার নাম" required>
+<br><br>
+<input id="email" type="email" placeholder="ইমেইল" required>
+<br><br>
+<input id="password" type="password" placeholder="পাসওয়ার্ড" required>
+<br><br>
+<button type="submit">রেজিস্টার</button>
+</form>
+<p id="regResult"></p>
+</div>
+
+<div class="card" id="login">
+<h3>🔐 লগইন</h3>
+<p>ডেমো লগইন ফর্ম।</p>
+<form onsubmit="loginUser(event)">
+<input id="loginEmail" type="email" placeholder="ইমেইল" required>
+<br><br>
+<input id="loginPassword" type="password" placeholder="পাসওয়ার্ড" required>
+<br><br>
+<button type="submit">লগইন</button>
+</form>
+<p id="loginResult"></p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 PLAY777 | Bangla Gaming</p>
+<p>শুধু বিনোদনের জন্য তৈরি ডেমো ওয়েবসাইট।</p>
+</footer>
+
+<script>
+function playGame(){
+let answer=Math.floor(Math.random()*10)+1;
+let guess=prompt("১ থেকে ১০-এর মধ্যে একটি সংখ্যা লিখুন");
+if(guess===null)return;
+document.getElementById("result").textContent=
+Number(guess)===answer
+?"🎉 সঠিক উত্তর!"
+:"আবার চেষ্টা করুন! সঠিক সংখ্যা ছিল "+answer;
+}
+function registerUser(e){
+e.preventDefault();
+document.getElementById("regResult").textContent=
+"ডেমো ফর্ম সম্পন্ন হয়েছে। এটি এখনো তথ্য সংরক্ষণ করে না।";
+}
+function loginUser(e){
+e.preventDefault();
+document.getElementById("loginResult").textContent=
+"এটি ডেমো লগইন। এখনো কোনো অ্যাকাউন্ট যাচাই হয় না।";
+}
+</script>
+
+</body>
+</html>
